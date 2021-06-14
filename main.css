@@ -1,0 +1,258 @@
+@charset "UTF-8";
+
+/*****************  Global Styles  ******************/
+
+* {
+	-ms-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+  }
+
+
+  p {
+      margin-bottom: 1em;
+      line-height: 1.5em;
+  }
+
+  .img_fluid {
+    width: 100%;
+    height: auto;
+  }
+
+  main {
+      max-width: 1280px;
+      width: 100%;
+      padding: 16px;
+      margin: 0 auto;
+      font-family: 'Lato', 'Arial', 'sans-serif';
+      color: #242424;
+  }
+
+
+  /*****************  Carousel  ******************/
+
+.wrapper_carousel {
+    background: var(--primary-grey);
+    height: 500px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 12px 2px #a4a4a4;
+}
+
+.carousel-data {
+    max-width: 600px;
+    min-height: 320px;
+    margin: 0 auto;
+    z-index: 100;
+    /*overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;*/
+}
+
+.carousel-item {
+    opacity: 0;
+    position: absolute;
+    z-index: 500;
+    transition: 500ms ease-in-out;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.initial-slide, .active-slide {
+    opacity: 1;
+    position: relative;
+    z-index: 1000;
+    visibility: visible;
+}
+
+.next, .prev {
+    z-index: 900;
+}
+
+.next {
+    -webkit-animation: animate-right 500ms;
+            animation: animate-right 500ms;
+}
+
+.prev {
+    -webkit-animation: animate-left 500ms;
+            animation: animate-left 500ms;
+}
+
+@-webkit-keyframes animate-right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+  }
+
+@keyframes animate-right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+  }
+
+  @-webkit-keyframes animate-left {
+    100% {
+        transform: translateX(-100%);
+    }
+    0% {
+        transform: translateX(0);
+    }
+  }
+
+  @keyframes animate-left {
+    100% {
+        transform: translateX(-100%);
+    }
+    0% {
+        transform: translateX(0);
+    }
+  }
+
+
+.author-profile {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.author-profile img {
+    min-height: 108px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+  .text_caption {
+    font-size: var(--text_lg);
+    font-weight: var(--text_weight-medium);
+}
+
+.caption-author {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.carousel-indicators {
+    margin: 0 auto;
+}
+
+.carousel-indicators button {
+    width: 8px;
+    height: 8px;
+    background: #a4a4a4;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+
+.carousel-indicators button:first-of-type {
+    margin-left: 0;
+}
+
+.carousel-controls button {
+    background: var(--yellow);
+    padding: 24px;
+    font-size: var(--text_md);
+    width: 60px;
+    max-width: 100%;
+    height: 60px;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-controls button .fas {
+    line-height: 1em;
+    font-size: 1.25em;
+    pointer-events: none;
+}
+
+button.current-indicator {
+    background: #197ABE;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .about-tagline {
+        font-size: var(--text_display-lg);
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+
+    .carousel-data {
+        padding: 0 16px;
+    }
+
+    .text_caption {
+        font-size: var(--text_md);
+    }
+
+}
+
+@media only screen and (max-width: 640px) {
+
+    .about-tagline {
+        font-size: var(--text_display-sm);
+    }
+
+    .wrapper_carousel {
+        width: 100vw !important;
+        position: relative;
+        left: 50%;
+        margin-left: -50vw;
+    }
+
+    .carousel-data {
+        padding: 0 24px;
+    }
+
+    .text_caption {
+        font-size: var(--text_default);
+        line-height: 1.75em;
+    }
+
+    .carousel-controls button {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+
+    .wrapper_carousel {
+        height: 700px;
+    }
+
+    .wrapper_carousel .page_title {
+        margin-top: 2rem !important;
+    }
+
+    .carousel-data {
+        margin-bottom: 2rem !important;
+    }
+
+    .carousel-indicators {
+        margin-bottom: 2rem;
+    }
+
+    .carousel-indicators button {
+        width: 40px;
+    }
+
+}
